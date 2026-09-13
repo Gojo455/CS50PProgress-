@@ -3,8 +3,8 @@ while True:
     try:
         item = input("Grocery: ")
         item = item.upper()
-        if item == ""
-        continue
+        if item == "":
+         continue
         if item in items:
             items[item] += 1
         else:
