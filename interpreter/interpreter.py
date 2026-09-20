@@ -1,11 +1,23 @@
 expr = input("Expression: ")
-for char in expr:
-    if char in "+-*/":
+for i, char in enumerate(expr):
+    # enumerate returns the character and it's index 
+    if char in ["+","-","*","/"]:
         operator = char
-        x = int(expr[:char])
-        y = int(expr[char+1:])
+        x = expr[:i]
+        y = expr[i+1:]
         x, y = x.replace(" ",""), y.replace(" ","")
+        x,y = int(x), int(y)
 
-if operator = 
-        
+if operator == "+":
+    final = x + y
+elif operator == "-":
+    final = x - y
+elif operator == "/":
+    final = x / y
+elif operator == "*":
+    final = x * y
+print(float(final))
+
+
+
 

@@ -19,8 +19,6 @@ def convert(time):
     final = hour + minute 
     return final 
 
-
-
 if __name__ == "__main__":
     main()
 
