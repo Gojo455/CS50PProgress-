@@ -10,8 +10,9 @@ named after its topic (e.g. `grocery/`, `outdated/`, `extensions/`). Inside, you
 script and any supporting files.
 
 My Progress so far:
-- [x] Basic I/O and conditionals
-- [ ] Loops and dictionaries
+- [x] Basic I/O
+- [x] Conditionals
+- [x] Loops
 - [ ] Exceptions
 - [ ] Libraries
 - [ ] Unit tests
