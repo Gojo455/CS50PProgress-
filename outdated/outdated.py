@@ -14,10 +14,10 @@ months = [
 ]
 while True:
     try:
-        entry = input()
+        entry = input("Date:")
         if "/" in entry:
             month,day,year = entry.split("/")
-            month,day = int(month), int(day)
+            month,day,year = int(month), int(day),int(year)
             if 1 <= day <= 31 and 1 <= month <= 12:
                 print(f"{year}-{month:02}-{day:02}")
                 break
@@ -25,13 +25,14 @@ while True:
             month, day, year = entry.split(" ")
             day = day.strip(",")
             month = month.title()
+            day = int(day)
+            year = int(year)
             if month in months and 1 <= day <= 31:
                     mon = months.index(month) + 1
                     print(f"{year}-{mon:02}-{day:02}")
                     break
-            else:
-                continue 
+
         else:
-             break
+             continue
     except ValueError:
-         continue 
+         continue
