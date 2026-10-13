@@ -8,7 +8,7 @@ try:
 except ValueError:
     sys.exit("Argument not a number")
 try:
-    price = requests.get("https://rest.coincap.io/v3/assets/bitcoin?apiKey=391619dfa2f915830f535d636d671755471b5a37673f9f6802809a96f0af8b37")
+    price = requests.get("https://rest.coincap.io/v3/assets/bitcoin?apiKey=")
     price.raise_for_status()
 except requests.HTTPError:
     sys.exit("request failed")
