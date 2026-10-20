@@ -4,9 +4,19 @@ called twttr. In a file called twttr.py, implement a program that prompts the
 user for a str of text and then outputs that same text but with all vowels
 (A, E, I, O, and U) omitted, whether inputted in uppercase or lowercase."""
 
-tweet = input("Tweet: ")
-twttr = ""
-for i in tweet:
-    if i not in "AEIOUaeiou":
-        twttr += i
-print(twttr)
+def main():
+    tweet = input("Tweet: ")
+    print(shorten(tweet))
+
+# funcion to strip away vowels 
+def shorten(word):
+    final= ""
+    for char in word:
+        if char.upper() not in "AEIOU":
+            final += char
+    return final
+
+
+if __name__ == "__main__":
+    main()
+
