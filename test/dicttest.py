@@ -1,11 +1,4 @@
-def main():
-    x = int(input("X: "))
-    print(f"X cubed is", square(x))
+seen = set()
+seen.add((1,2,3,4,77,54,22))
 
-def square(q):
-    return q**3
-
-
-
-if __name__ == "__main__":
-    main()
+print(seen)
