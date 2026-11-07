@@ -8,13 +8,13 @@ This repo is a public record of my progress coursework and practice, not a portf
 Each file corresponds to a problem or exercise that i've provide a solution to and is
 named after its topic (e.g. `grocery/`, `outdated/`, `extensions/`). Inside, you'll typically find the Python
 script and any supporting files.
-
+Actual CS50P course entry: https://submit.cs50.io/users/Gojo455/cs50/problems/2022/python/
 My Progress so far:
 - [x] Basic I/O
 - [x] Conditionals
 - [x] Loops
-- [ ] Exceptions
-- [ ] Libraries
+- [x] Exceptions
+- [x] Libraries
 - [ ] Unit tests
 - [ ] File I/O
 - [ ] Regular expressions
