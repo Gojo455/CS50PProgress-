@@ -2,8 +2,9 @@ import sys
 import csv 
 def main():
     keep = []
+    filename = "dump.csv"
     try:
-        with open("dump.csv") as file: 
+        with open(filename) as file: 
             reader = csv.DictReader(file)
             for item in reader:
                 item["name"] = clean_text(item["name"])
@@ -15,11 +16,13 @@ def main():
                     continue
                 keep.append(item)
     except FileNotFoundError:
-                sys.exit("File not found")
+                sys.exit(f"{filename} file not found")
+    except KeyError as error:
+         print(error.args)
+         
     if not keep:
-        print(f"no data found in dump.csv", file = sys.stderr)
+        print(f"no data found in {filename}", file = sys.stderr)
         sys.exit(1)
-
     else:
         with open("dump_student.csv", "w", newline="") as note:
                 writer = csv.DictWriter(note, fieldnames= list(keep[0]))
