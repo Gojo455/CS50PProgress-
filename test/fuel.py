@@ -55,28 +55,34 @@ months = [
     "November",
     "December"
     ]
-def clean_date(date):
+def extractor(date):
     date = date.strip()
     if "-" in date:
-        year,month,day = date.split("-")
         try:
-             year ,month,day = int(year),int(month),int(day)
-             if 1960 <= year < 2030 and 1 <= month <= 12 and 1 <= day <= 31:
-                  return date
+             if  len(date.split("-")) == 3:
+                year,month,day = date.split("-")
+                return int(year),int(month),int(day)
+             
+             """
+                year,month,day = date.split("-")
+                year,month,day = int(year),int(month),int(day)
+                if 1960 <= year < 2030 and 1 <= month <= 12 and 1 <= day <= 31:
+                    return f"{year}-{month:02}-{day:02}"""
         except ValueError:
              return None
     if "/" in date:
        if  len(date.split("/")) == 3:
             day,month,year = date.split("/")
             try:
-                day,month,year = int(day),int(month), int(year)
+                return int(year),int(month), int(day)
             except ValueError:
                  return None
-            else:
-                if 1 <= day <=31 and 1 <= month <= 12 and 1960 <= year:
+            """else:
+                # testing the date check
+                if 1 <= day <= 31 and  1 <= month <= 12 and 1960 <= year <= 2030:
                     return f"{year}-{month:02}-{day:02}"
                 else:
-                    return None
+                    return None"""
        else:
             return None
     parts = date.split()
@@ -85,9 +91,9 @@ def clean_date(date):
         monthno = months.index(month.title()) + 1
         try:
             day,year = int(day), int(year)
-            if 1 <= day <=31 :
-                                return f"{year}-{monthno:02}-{day:02}"
-            
+            return year,monthno,day
+            """if 1 <= day <=31 and 1960 <= year <= 2030 :
+                                return f"{year}-{monthno:02}-{day:02}"""    
         except ValueError:
              return None
         
