@@ -1,3 +1,5 @@
-from fuel import extractor 
+from fuel import  clean_date
 
-print(extractor(""))
+hold = "19/3/1956"
+
+print(clean_date(hold))

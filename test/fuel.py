@@ -1,5 +1,6 @@
 import csv 
 import sys
+import datetime
 def main():
     filename = "dump.csv"
     keep = []
@@ -22,15 +23,15 @@ def main():
         sys.exit(f"{filename} file not found")
     except KeyError as error:
          sys.exit(f"{error.args[0]} column is missing in {filename} ")
-         
-    filename2 = "cleaned_dump.csv"
+    # write part below  
+    """filename2 = "cleaned_dump.csv"
     if keep:
         with open(filename2, "w",newline="") as file:
             writer = csv.DictWriter(file, fieldnames=list(keep[0]))
             writer.writeheader()
             writer.writerows(keep)
     else:
-         sys.exit("No data found")
+         sys.exit("No data found")"""
 
     
 
@@ -62,12 +63,6 @@ def extractor(date):
              if  len(date.split("-")) == 3:
                 year,month,day = date.split("-")
                 return int(year),int(month),int(day)
-             
-             """
-                year,month,day = date.split("-")
-                year,month,day = int(year),int(month),int(day)
-                if 1960 <= year < 2030 and 1 <= month <= 12 and 1 <= day <= 31:
-                    return f"{year}-{month:02}-{day:02}"""
         except ValueError:
              return None
     if "/" in date:
@@ -77,12 +72,6 @@ def extractor(date):
                 return int(year),int(month), int(day)
             except ValueError:
                  return None
-            """else:
-                # testing the date check
-                if 1 <= day <= 31 and  1 <= month <= 12 and 1960 <= year <= 2030:
-                    return f"{year}-{month:02}-{day:02}"
-                else:
-                    return None"""
        else:
             return None
     parts = date.split()
@@ -91,14 +80,25 @@ def extractor(date):
         monthno = months.index(month.title()) + 1
         try:
             day,year = int(day), int(year)
-            return year,monthno,day
-            """if 1 <= day <=31 and 1960 <= year <= 2030 :
-                                return f"{year}-{monthno:02}-{day:02}"""    
+            return year,monthno,day   
         except ValueError:
              return None
         
     else:
          return None
+current_year = datetime.date.today().year
+def clean_date(raw):
+    hold = extractor(raw)
+    if hold is None:
+        return None
+    year,month,day = hold
+    if 1960 > year or current_year < year:
+        return None 
+    try:
+        return datetime.date(year,month,day).isoformat()
+    except ValueError:
+        return None
+
 def clean_score(score):
      try:
           return float(score)
