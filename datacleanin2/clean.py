@@ -4,6 +4,8 @@ import datetime
 def main():
     filename = "dump.csv"
     keep = []
+    
+
     try:
         with open(filename) as file:
             reader = csv.DictReader(file)
